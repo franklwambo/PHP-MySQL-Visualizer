@@ -34,6 +34,10 @@ class Registered {
 			$data[] = $row;
 			//echo "<pre>";print_R($data);die;
 		}
+
+		$fp = fopen('daily_aggregations.json', 'w');
+		fwrite($fp, json_encode($data,JSON_PRETTY_PRINT));
+		fclose($fp);
 		
 		$json_data = array(
 			"Result" => 'OK', 
@@ -41,7 +45,14 @@ class Registered {
 			);
 
 	echo json_encode($json_data);  // send data as json format*/
-		
+	
+	//generate a JSON file
+/*
+	$fp = fopen('results.json', 'w');
+    fwrite($fp, json_encode($json_data,JSON_PRETTY_PRINT));
+	fclose($fp);
+	
+	*/
 		
 	}
 	
